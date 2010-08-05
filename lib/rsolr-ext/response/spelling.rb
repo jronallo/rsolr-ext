@@ -59,8 +59,12 @@ module RSolr::Ext::Response::Spelling
                 #   suggestion => ['word'] # for non-extended results
                 origFreq = term_info['origFreq']
                 if suggestions.index("correctlySpelled")
-                  word_suggestions << term_info['suggestion'].map do |suggestion|
-                    suggestion['word'] if suggestion['freq'] > origFreq
+                  if term_info['suggestion'].is_a? Array # Solr 1.4
+                    word_suggestions << term_info['suggestion'].map do |suggestion|
+                      suggestion['word'] if suggestion['freq'] > origFreq
+                    end
+                  elsif term_info['suggestion'].is_a? Hash # pre Solr 1.4
+                    word_suggestions << term_info['suggestion']['word'] if term_info['suggestion']['frequency'] > origFreq
                   end
                 else
                   # only extended suggestions have frequency so we just return all suggestions

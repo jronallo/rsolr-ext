@@ -28,5 +28,9 @@ Spec::Runner.configure do |config|
     %|{'responseHeader'=>{'status'=>0,'QTime'=>3,'params'=>{'spellspellcheck.build'=>'true','spellcheck'=>'true','q'=>'hell','spellcheck.q'=>'hell ultrashar','wt'=>'ruby','spellcheck.collate'=>'true'}},'response'=>{'numFound'=>0,'start'=>0,'docs'=>[]},'spellcheck'=>{'suggestions'=>['hell',{'numFound'=>1,'startOffset'=>0,'endOffset'=>4,'suggestion'=>['dell']},'ultrashar',{'numFound'=>1,'startOffset'=>5,'endOffset'=>14,'suggestion'=>['ultrasharp']},'collation','dell ultrasharp']}}|
   end
 
+  def mock_spelling_response_prior_to_1_4
+    %|{'response'=>{'numFound'=>0,'start'=>0,'docs'=>[]}, "spellcheck"=>{"suggestions"=>["lucene", {"startOffset"=>2, "endOffset"=>8, "origFreq"=>0, "suggestion"=>{"word"=>"licenses", "frequency"=>1}, "numFound"=>5}, "dismax", {"startOffset"=>21, "endOffset"=>27, "origFreq"=>0, "suggestion"=>{"word"=>"distant", "frequency"=>1}, "numFound"=>2}, "spellcheck", {"startOffset"=>28, "endOffset"=>38, "origFreq"=>0, "suggestion"=>{"word"=>"speeches", "frequency"=>6}, "numFound"=>1}, "dictionary", {"startOffset"=>39, "endOffset"=>49, "origFreq"=>1, "suggestion"=>{"word"=>"diction", "frequency"=>1}, "numFound"=>5}, "prince", {"startOffset"=>83, "endOffset"=>89, "origFreq"=>2, "suggestion"=>{"word"=>"prices", "frequency"=>2}, "numFound"=>5}, "dismax", {"startOffset"=>106, "endOffset"=>112, "origFreq"=>0, "suggestion"=>{"word"=>"distant", "frequency"=>1}, "numFound"=>2}, "frog", {"startOffset"=>115, "endOffset"=>119, "origFreq"=>0, "suggestion"=>{"word"=>"flot", "frequency"=>4}, "numFound"=>5}, "correctlySpelled", false]}}|
+  end
+
 end
 

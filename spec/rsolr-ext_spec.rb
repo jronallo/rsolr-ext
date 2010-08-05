@@ -270,6 +270,12 @@ describe RSolr::Ext do
       r.spelling.collation.should == 'dell ultrasharp'
     end
 
+    it 'should not raise for spellcheck' do
+      raw_response = eval(mock_spelling_response_prior_to_1_4)
+      r = RSolr::Ext::Response::Base.new(raw_response, '/catalog', {})
+      r.spelling.words.size.should == 4
+    end
+
   end
 
 end
